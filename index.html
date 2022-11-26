@@ -192,15 +192,21 @@
     let calculateBtn = document.getElementById('calculate');
     calculateBtn.addEventListener('click', function(){
       try {
-        let inputOne = Number(document.getElementById('first-num').value);
-        let inputTwo = Number(document.getElementById('second-num').value);
+        let inputOne = document.getElementById('first-num').value;
+        let inputTwo = document.getElementById('second-num').value;
         let operation = document.getElementById('operator').value;
         console.log(inputOne);
         console.log(inputTwo);
         if (inputOne === null || inputTwo === null) {
-          throw new Error("Both inputs need to be valid");
+          throw new Error("Inputs need to be filled");
         }
-        if (operation === 'divide' && inputTwo === 0) {
+        
+        let numOne = Number(inputOne);
+        let numTwo = Number(inputTwo);
+        if (isNaN(numOne) || isNaN(numTwo)) {
+          throw new Error("Inputs need to be valid");
+        }
+        if (operation === 'divide' && numTwo === 0) {
           throw new Error("Cannot divide by 0!");
         }
         
@@ -209,13 +215,13 @@
           result = inputOne + inputTwo;
         }
         else if (operation === 'subtract') {
-          result = inputOne - inputTwo;
+          result = numOne - numTwo;
         }
         else if (operation === 'multiply') {
-          result = inputOne * inputTwo;
+          result = numOne * numTwo;
         }
         else if (operation === 'divide') {
-          result = inputOne / inputTwo;
+          result = numOne / numTwo;
         }
         let output = document.querySelector('output');
         output.innerHTML = eval(result);
