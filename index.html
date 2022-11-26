@@ -152,7 +152,30 @@
     
     let groupEndBtn = document.getElementById('groupEnd');
     groupEndBtn.addEventListener('click', function(){
-      console.group('Console Group Start Demo');
+      console.groupEnd('Console Group Start Demo');
+    });
+    
+    let tableBtn = document.getElementById('table');
+    tableBtn.addEventListener('click', function(){
+      console.table([{Department: 'CSE', Number: '110'},{Department: 'CSE', Number: '101'},{Department: 'MATH', Number: '102'},{Department: 'MATH', Number: '154'}]);
+    });
+    
+    let startTimerBtn = document.getElementById('startTimer');
+    startTimerBtn.addEventListener('click', function(){
+      console.time('Console Time Demo');
+    });
+    
+    let endTimerBtn = document.getElementById('endTimer');
+    endTimerBtn.addEventListener('click', function(){
+      console.timeEnd('Console Time Demo');
+    });
+    
+    let traceBtn = document.getElementById('trace');
+    traceBtn.addEventListener('click', function(){
+      const Thank_you =  function{Im_fine();};
+      const Im_fine =  function{How_are_you();};
+      const How_are_you =  function{Hi();};
+      const Hi = function{console.trace();};
     });
   </script>
 </body>
