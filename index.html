@@ -195,10 +195,12 @@
         let inputOne = Number(document.getElementById('first-num').value);
         let inputTwo = Number(document.getElementById('second-num').value);
         let operation = document.getElementById('operator').value;
+        console.log(inputOne);
+        console.log(inputTwo);
         if (inputOne === null || inputTwo === null) {
           throw new Error("Both inputs need to be valid");
         }
-        if (operation === 'divide' || inputTwo === 0) {
+        if (operation === 'divide' && inputTwo === 0) {
           throw new Error("Cannot divide by 0!");
         }
         
