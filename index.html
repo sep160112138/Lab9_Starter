@@ -189,6 +189,13 @@
       }
     });*/
     
+    class MathError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'MathError';
+      }
+    }
+    
     let calculateBtn = document.getElementById('calculate');
     calculateBtn.addEventListener('click', function(){
       try {
@@ -206,7 +213,7 @@
           throw new Error("Inputs need to be valid");
         }
         if (operation === 'divide' && numTwo === 0) {
-          throw new Error("Cannot divide by 0!");
+          throw new MathError("Cannot divide by 0!");
         }
         
         let result;
@@ -225,7 +232,12 @@
         let output = document.querySelector('output');
         output.innerHTML = eval(result);
       } catch (err) {
-        alert(err.message);
+        if (err instanceof MathError) {
+          alert(`${err.name}: ${err.message}`);
+        }
+        else {
+          alert(err.message);
+        }
       } finally {
         console.log('Boom. A result or an error');
       }
