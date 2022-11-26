@@ -56,10 +56,10 @@
         <legend>Error Calculator</legend>
         <input name="first-num" id="first-num" />
         <select name="operator" id="operator">
-          <option>+</option>
-          <option>-</option>
-          <option>*</option>
-          <option>/</option>
+          <option value="add">+</option>
+          <option value="subtract">-</option>
+          <option value="multiply">*</option>
+          <option value="divide">/</option>
         </select>
         <input name="second-num" id="second-num" />
         <button id="calculate">Calculate</button>
@@ -179,13 +179,48 @@
       Thank_you();
     });
     
-    let globalBtn = document.getElementById('global');
+    /*let globalBtn = document.getElementById('global');
     globalBtn.addEventListener('click', function(){
       try {
         let plus = 1+1
         console.log('I made an error');
       } catch (err) {
         error(`Oh my goodness it's an error!!!`);
+      }
+    });*/
+    
+    let calculateBtn = document.getElementById('calculate');
+    calculateBtn.addEventListener('click', function(){
+      try {
+        let inputOne = Number(document.getElementById('first-num').value);
+        let inputTwo = Number(document.getElementById('second-num').value);
+        let operation = document.getElementById('operator').value;
+        if (inputOne === null || inputTwo === null) {
+          throw new Error("Both inputs need to be valid");
+        }
+        if (operation === 'divide' || inputTwo === 0) {
+          throw new Error("Cannot divide by 0!");
+        }
+        
+        let result;
+        if (operation === 'add') {
+          result = inputOne + inputTwo;
+        }
+        else if (operation === 'subtract') {
+          result = inputOne - inputTwo;
+        }
+        else if (operation === 'multiply') {
+          result = inputOne * inputTwo;
+        }
+        else if (operation === 'divide') {
+          result = inputOne / inputTwo;
+        }
+        let output = document.querySelector('output');
+        output.innerHTML = eval(result);
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        console.log('Boom. A result or an error');
       }
     });
   </script>
