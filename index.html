@@ -123,7 +123,7 @@
     });
     
     let assertBtn = document.getElementById('assert');
-    warnBtn.addEventListener('click', function(){
+    aseertBtn.addEventListener('click', function(){
       let expression = 1+1;
       let result = 3;
       let reason = '1+1 does not equal to 3';
@@ -133,6 +133,26 @@
     let clearBtn = document.getElementById('clear');
     clearBtn.addEventListener('click', function(){
       console.clear();
+    });
+    
+    let dirBtn = document.getElementById('dir');
+    dirBtn.addEventListener('click', function(){
+      console.dir(dirBtn);
+    });
+    
+    let dirxmlBtn = document.getElementById('dirxml');
+    dirxmlBtn.addEventListener('click', function(){
+      console.dirxml(dirxmlBtn);
+    });
+    
+    let groupStartBtn = document.getElementById('groupStart');
+    groupStartBtn.addEventListener('click', function(){
+      console.group('Console Group Start Demo');
+    });
+    
+    let groupEndBtn = document.getElementById('groupEnd');
+    groupEndBtn.addEventListener('click', function(){
+      console.group('Console Group Start Demo');
     });
   </script>
 </body>
