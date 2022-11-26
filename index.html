@@ -114,25 +114,25 @@
     
     let countBtn = document.getElementById('count');
     countBtn.addEventListener('click', function(){
-      console.count('Console Count Demo');
+      //console.count('Console Count Demo');
     });
     
     let warnBtn = document.getElementById('warn');
     warnBtn.addEventListener('click', function(){
-      console.warn('Console Warn Demo');
+      //console.warn('Console Warn Demo');
     });
     
     let assertBtn = document.getElementById('assert');
     assertBtn.addEventListener('click', function(){
-      let expression = 1+1;
+      /*let expression = 1+1;
       let result = 3;
       let reason = '1+1 does not equal to 3';
-      console.assert(expression == result, {expression, result, reason});
+      console.assert(expression == result, {expression, result, reason});*/
     });
     
     let clearBtn = document.getElementById('clear');
     clearBtn.addEventListener('click', function(){
-      console.clear();
+      //console.clear();
     });
     
     let dirBtn = document.getElementById('dir');
@@ -177,6 +177,20 @@
       let How_are_you =  function(){Hi();};
       let Hi = function(){console.trace();};
       Thank_you();
+    });
+    
+    let endTimerBtn = document.getElementById('endTimer');
+    endTimerBtn.addEventListener('click', function(){
+      console.timeEnd('Console Time Demo');
+    });
+    
+    let globalBtn = document.getElementById('global');
+    globalBtn.addEventListener('click', function(){
+      try {
+        console.log('I made an error')
+      } catch (err) {
+        error(`Oh my goodness it's an error!!!`);
+      }
     });
   </script>
 </body>
