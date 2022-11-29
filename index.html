@@ -240,16 +240,9 @@
       } finally {
         console.log('Boom. A result or an error');
       }
-      
-      let globalError = function () {
-        if (window.onerror) {
-          window.onerror = function(msg, url, line, col, error) {
-            console.log(`Global error demo`);
-          };
-        }
-      }
-      
-      globalError();
+    });
+    window.addEventListener("error", () => {
+      console.log("Global error demo");
     });
   </script>
 </body>
