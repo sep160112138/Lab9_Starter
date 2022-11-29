@@ -182,6 +182,11 @@
     let globalBtn = document.getElementById('global');
     globalBtn.addEventListener('click', function(){
       boomshakalaka();
+      if (window.onerror) {
+        window.onerror = function(msg, url, line, col, error) {
+          console.log(`Global error demo`);
+        };
+      }
     });
     
     class MathError extends Error {
@@ -208,7 +213,6 @@
         if (isNaN(numOne) || isNaN(numTwo)) {
           //throw new MathError("Inputs need to be valid");
           throw new Error("Inputs need to be valid");
-          
         }
         if (operation === 'divide' && numTwo === 0) {
           //throw new MathError("Cannot divide by 0!");
