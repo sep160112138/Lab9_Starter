@@ -200,6 +200,7 @@
 
         if (inputOne === '' || inputTwo === '') {
           throw new Error("Inputs need to be filled");
+          //window.onerror
         }
         
         let numOne = Number(inputOne);
@@ -207,6 +208,7 @@
         if (isNaN(numOne) || isNaN(numTwo)) {
           //throw new MathError("Inputs need to be valid");
           throw new Error("Inputs need to be valid");
+          
         }
         if (operation === 'divide' && numTwo === 0) {
           //throw new MathError("Cannot divide by 0!");
@@ -239,9 +241,14 @@
         console.log('Boom. A result or an error');
       }
       
-      window.onerror = function(msg, url, line, col, error) {
-        console.log(`Global error demo - ${error}`);
-      };
+      let globalError = function () {
+        if (window.onerror) {
+          window.onerror = function(msg, url, line, col, error) {
+            console.log(`Global error demo`);
+          };
+      }
+      
+      globalError();
     });
   </script>
 </body>
