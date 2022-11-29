@@ -239,8 +239,8 @@
         console.log('Boom. A result or an error');
       }
       
-      window.onerror = function() {
-        console.log('Global error demo');
+      window.onerror = function(msg, url, line, col, error) {
+        console.log(`Global error demo - ${error}`);
       };
     });
   </script>
